@@ -225,6 +225,18 @@
   .show-gl-soon { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.72rem 1.2rem; border: 1px solid var(--border-bright); background: transparent; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
   .show-gl-soon .dotpulse { width: 5px; height: 5px; background: var(--warn); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; display: inline-block; }
 
+  /* Guest List Soon — dashed border variant (no live link yet) */
+  .show-gl-dashed { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.72rem 1.2rem; border: 1px dashed rgba(230,235,231,0.2); background: transparent; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .show-gl-dashed .dotpulse { width: 5px; height: 5px; background: var(--muted); border-radius: 50%; animation: pulse 2s ease-in-out infinite; display: inline-block; }
+
+  /* Past shows — muted, no hover interaction */
+  .shows-past-label { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin: 2.8rem 0 1rem; display: flex; align-items: center; gap: 0.8rem; opacity: 0.55; }
+  .shows-past-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .show-item.past { opacity: 0.45; cursor: default; }
+  .show-item.past:hover { border-color: var(--border); background: transparent; }
+  /* Played tag — replaces CTA on past show items */
+  .show-tag-played { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); padding: 0.35rem 0.75rem; border: 1px solid var(--border); }
+
   #booking { padding: 9rem 3rem; background: var(--surface); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
   .booking-wrap { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .booking-inner h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -0.028em; line-height: 0.98; color: var(--ink); max-width: 11ch; }
@@ -346,7 +358,7 @@
   <div class="hero-grid">
     <div class="hero-left">
       <p class="hero-eyebrow">Chicago · DJ &amp; Producer · Est. 2025</p>
-      <h1 class="hero-name">Doc <span class="amp">&amp;</span><br>Double<span class="period">.</span></h1>
+      <h1 class="hero-name">Doc<br>Double<span class="period">.</span></h1>
       <p class="hero-sub">A surgeon&rsquo;s precision after hours — <b>deep house, tech house, UK garage, speed house, and drum &amp; bass</b> cut for the Chicago floor.</p>
       <div class="hero-cta-row">
         <a href="#booking" class="btn btn-primary">Book a set <span class="arrow">→</span></a>
@@ -624,18 +636,42 @@
 </section>
 
 <section id="shows">
+
+  <!-- ============================================================
+       SHOWS SECTION — HOW TO MAINTAIN
+
+       ADD a new upcoming show:
+         Copy any show-item block into .show-list, fill in the date,
+         venue, detail, and pick a CTA option (see options commented
+         inside each block below).
+
+       MOVE a show to past:
+         1. Cut the entire show-item div from .show-list.
+         2. Paste it into .show-list-past below.
+         3. Change the opening tag to: class="show-item no-flyer past"
+            (add "past" — that's the only change needed for styling).
+         4. Replace the CTA div with:
+              <div class="show-cta"><span class="show-tag-played">Played</span></div>
+
+       ACTIVATE a guest list link (swap "soon" for real link):
+         Replace the .show-gl-dashed div with:
+           <a href="URL" target="_blank" rel="noopener" class="show-gl-btn">Guest List</a>
+       ============================================================ -->
+
   <div class="shows-header reveal">
     <div>
       <p class="section-label">Live · 2026</p>
-      <h2>Upcoming shows.</h2>
+      <h2>Shows.</h2>
     </div>
-    <span class="count">02 dates</span>
+    <span class="count">02 upcoming</span>
   </div>
+
+  <!-- ── UPCOMING ─────────────────────────────────────────────── -->
   <div class="show-list reveal">
 
-    <!-- KASHMIR · DocDouble × Briffey · Fri Apr 17 -->
+    <!-- KASHMIR · DocDouble × Briffey · Sat Jun 13 -->
     <div class="show-item no-flyer">
-      <div class="show-date"><span class="day">17</span><span class="mon">Apr · Fri</span></div>
+      <div class="show-date"><span class="day">13</span><span class="mon">Jun · Sat</span></div>
       <div class="show-info">
         <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
         <div class="show-detail">
@@ -644,7 +680,8 @@
         </div>
       </div>
       <div class="show-cta">
-        <a href="https://oosthosts.github.io/docdouble-guestlist/" target="_blank" rel="noopener" class="show-gl-btn">Guest List</a>
+        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
+        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
       </div>
     </div>
 
@@ -662,13 +699,37 @@
         </div>
       </div>
       <div class="show-cta">
-        <div class="show-gl-soon">
-          <span class="dotpulse"></span> Guest list · coming soon
-        </div>
+        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
+        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
       </div>
     </div>
 
   </div>
+
+  <!-- ── PAST ──────────────────────────────────────────────────
+       To add a show here: cut it from .show-list above, paste below,
+       add class="past" to the show-item tag, replace CTA with
+       <span class="show-tag-played">Played</span>.            -->
+  <div class="shows-past-label">Past shows</div>
+  <div class="show-list show-list-past reveal">
+
+    <!-- KASHMIR · DocDouble × Briffey · Fri Apr 17 — PAST -->
+    <div class="show-item no-flyer past">
+      <div class="show-date"><span class="day">17</span><span class="mon">Apr · Fri</span></div>
+      <div class="show-info">
+        <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
+        <div class="show-detail">
+          West Loop, Chicago · 10 PM – 2 AM
+          <span class="lineup">DocDouble 10–12 &nbsp;·&nbsp; Briffey 12–2</span>
+        </div>
+      </div>
+      <div class="show-cta">
+        <span class="show-tag-played">Played</span>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
 <section id="booking">
