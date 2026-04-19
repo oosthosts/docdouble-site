@@ -382,6 +382,105 @@
   </div>
 </section>
 
+<section id="shows">
+
+  <!-- ============================================================
+       SHOWS SECTION — HOW TO MAINTAIN
+
+       ADD a new upcoming show:
+         Copy any show-item block into .show-list, fill in the date,
+         venue, detail, and pick a CTA option (see options commented
+         inside each block below).
+
+       MOVE a show to past:
+         1. Cut the entire show-item div from .show-list.
+         2. Paste it into .show-list-past below.
+         3. Change the opening tag to: class="show-item no-flyer past"
+            (add "past" — that's the only change needed for styling).
+         4. Replace the CTA div with:
+              <div class="show-cta"><span class="show-tag-played">Played</span></div>
+
+       ACTIVATE a guest list link (swap "soon" for real link):
+         Replace the .show-gl-dashed div with:
+           <a href="URL" target="_blank" rel="noopener" class="show-gl-btn">Guest List</a>
+       ============================================================ -->
+
+  <div class="shows-header reveal">
+    <div>
+      <p class="section-label">Live · 2026</p>
+      <h2>Shows.</h2>
+    </div>
+    <span class="count">02 upcoming</span>
+  </div>
+
+  <!-- ── UPCOMING ─────────────────────────────────────────────── -->
+  <!-- UPCOMING: nearest date first, furthest last -->
+  <div class="show-list reveal">
+
+    <!-- LOFT 22 · UMMO · Sat May 23 -->
+    <div class="show-item">
+      <div class="show-date"><span class="day">23</span><span class="mon">May · Sat</span></div>
+      <div class="show-flyer">
+        <img src="ummo-flyer.jpg" alt="Loft 22 — May 23" loading="lazy" />
+      </div>
+      <div class="show-info">
+        <div class="show-venue">Loft 22 <span class="sep">/</span><span class="event">UMMO</span></div>
+        <div class="show-detail">
+          22 W Hubbard St, Chicago · 10 PM – 3 AM
+          <span class="lineup">w/ WOOLF · Doc Double · Santi · Bobby Thompson</span>
+        </div>
+      </div>
+      <div class="show-cta">
+        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
+        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
+      </div>
+    </div>
+
+    <!-- KASHMIR · DocDouble × Briffey · Sat Jun 13 -->
+    <div class="show-item no-flyer">
+      <div class="show-date"><span class="day">13</span><span class="mon">Jun · Sat</span></div>
+      <div class="show-info">
+        <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
+        <div class="show-detail">
+          West Loop, Chicago · 10 PM – 2 AM
+          <span class="lineup">DocDouble 10–12 &nbsp;·&nbsp; Briffey 12–2</span>
+        </div>
+      </div>
+      <div class="show-cta">
+        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
+        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PAST ──────────────────────────────────────────────────
+       To add a show here: cut it from .show-list above, paste below,
+       add class="past" to the show-item tag, replace CTA with
+       <span class="show-tag-played">Played</span>.            -->
+  <!-- PAST: most recent first, oldest last -->
+  <div class="shows-past-label">Past shows</div>
+  <div class="show-list show-list-past reveal">
+
+    <!-- KASHMIR · DocDouble × Briffey · Fri Apr 17 — PAST -->
+    <div class="show-item no-flyer past">
+      <div class="show-date"><span class="day">17</span><span class="mon">Apr · Fri</span></div>
+      <div class="show-info">
+        <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
+        <div class="show-detail">
+          West Loop, Chicago · 10 PM – 2 AM
+          <span class="lineup">DocDouble 10–12 &nbsp;·&nbsp; Briffey 12–2</span>
+        </div>
+      </div>
+      <div class="show-cta">
+        <span class="show-tag-played">Played</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 <section id="about">
   <div class="about-wrap">
     <div class="reveal">
@@ -633,103 +732,6 @@
       <a href="https://soundcloud.com/docdoublemusic" target="_blank" rel="noopener">Full profile ↗</a>
     </div>
   </div>
-</section>
-
-<section id="shows">
-
-  <!-- ============================================================
-       SHOWS SECTION — HOW TO MAINTAIN
-
-       ADD a new upcoming show:
-         Copy any show-item block into .show-list, fill in the date,
-         venue, detail, and pick a CTA option (see options commented
-         inside each block below).
-
-       MOVE a show to past:
-         1. Cut the entire show-item div from .show-list.
-         2. Paste it into .show-list-past below.
-         3. Change the opening tag to: class="show-item no-flyer past"
-            (add "past" — that's the only change needed for styling).
-         4. Replace the CTA div with:
-              <div class="show-cta"><span class="show-tag-played">Played</span></div>
-
-       ACTIVATE a guest list link (swap "soon" for real link):
-         Replace the .show-gl-dashed div with:
-           <a href="URL" target="_blank" rel="noopener" class="show-gl-btn">Guest List</a>
-       ============================================================ -->
-
-  <div class="shows-header reveal">
-    <div>
-      <p class="section-label">Live · 2026</p>
-      <h2>Shows.</h2>
-    </div>
-    <span class="count">02 upcoming</span>
-  </div>
-
-  <!-- ── UPCOMING ─────────────────────────────────────────────── -->
-  <div class="show-list reveal">
-
-    <!-- KASHMIR · DocDouble × Briffey · Sat Jun 13 -->
-    <div class="show-item no-flyer">
-      <div class="show-date"><span class="day">13</span><span class="mon">Jun · Sat</span></div>
-      <div class="show-info">
-        <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
-        <div class="show-detail">
-          West Loop, Chicago · 10 PM – 2 AM
-          <span class="lineup">DocDouble 10–12 &nbsp;·&nbsp; Briffey 12–2</span>
-        </div>
-      </div>
-      <div class="show-cta">
-        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
-        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
-      </div>
-    </div>
-
-    <!-- LOFT 22 · UMMO · Sat May 23 -->
-    <div class="show-item">
-      <div class="show-date"><span class="day">23</span><span class="mon">May · Sat</span></div>
-      <div class="show-flyer">
-        <img src="ummo-flyer.jpg" alt="Loft 22 — May 23" loading="lazy" />
-      </div>
-      <div class="show-info">
-        <div class="show-venue">Loft 22 <span class="sep">/</span><span class="event">UMMO</span></div>
-        <div class="show-detail">
-          22 W Hubbard St, Chicago · 10 PM – 3 AM
-          <span class="lineup">w/ WOOLF · Doc Double · Santi · Bobby Thompson</span>
-        </div>
-      </div>
-      <div class="show-cta">
-        <!-- CTA OPTION B — dashed "coming soon"; swap for .show-gl-btn once link is live -->
-        <div class="show-gl-dashed"><span class="dotpulse"></span> Guest List Soon</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── PAST ──────────────────────────────────────────────────
-       To add a show here: cut it from .show-list above, paste below,
-       add class="past" to the show-item tag, replace CTA with
-       <span class="show-tag-played">Played</span>.            -->
-  <div class="shows-past-label">Past shows</div>
-  <div class="show-list show-list-past reveal">
-
-    <!-- KASHMIR · DocDouble × Briffey · Fri Apr 17 — PAST -->
-    <div class="show-item no-flyer past">
-      <div class="show-date"><span class="day">17</span><span class="mon">Apr · Fri</span></div>
-      <div class="show-info">
-        <div class="show-venue">Kashmir <span class="sep">/</span><span class="event">DocDouble × Briffey</span></div>
-        <div class="show-detail">
-          West Loop, Chicago · 10 PM – 2 AM
-          <span class="lineup">DocDouble 10–12 &nbsp;·&nbsp; Briffey 12–2</span>
-        </div>
-      </div>
-      <div class="show-cta">
-        <span class="show-tag-played">Played</span>
-      </div>
-    </div>
-
-  </div>
-
 </section>
 
 <section id="booking">
